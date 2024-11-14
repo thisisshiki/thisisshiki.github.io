@@ -1,1 +1,0 @@
-# thisisshiki.github.io
