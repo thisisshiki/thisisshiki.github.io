@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { ArrowUp, Download, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react'
-// At the top of App.jsx
+
 const importAll = (r) => {
   let images = {};
   r.keys().forEach((item) => {
@@ -177,7 +177,7 @@ export default function App() {
                     <Github className="h-4 w-4" />
                   </Button>
                 </a>
-                <a href="https://linkedin.com/in/thisisshiki" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/shikiwang/" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon">
                     <Linkedin className="h-4 w-4" />
                   </Button>
@@ -187,7 +187,7 @@ export default function App() {
                     <Mail className="h-4 w-4" />
                   </Button>
                 </a>
-                <a href="/resume.pdf" download>
+                <a href="https://thisisshiki.hackerresume.io/9dd3a4a8-5dd5-4b63-81b5-05de9daacc8c" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon">
                     <Download className="h-4 w-4" />
                   </Button>
@@ -292,8 +292,8 @@ export default function App() {
           </div>
         </section>
       </main>
-      <footer className="border-t">
-        <div className="container flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center justify-center px-4 md:px-6">
+      <footer className="border-t w-full box-border">
+        <div className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center justify-center px-4 md:px-6">
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Shiqi Wang. All rights reserved.
           </p>
