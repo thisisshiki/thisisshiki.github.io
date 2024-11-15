@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { ArrowUp, Download, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react'
+// At the top of App.jsx
+const importAll = (r) => {
+  let images = {};
+  r.keys().forEach((item) => {
+    images[item.replace('./', '')] = r(item);
+  });
+  return images;
+}
+
+// Import all images from images directory
+const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg|gif)$/));
 
 function Button({ children, variant = "default", size = "default", ...props }) {
   const baseStyles = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background"
@@ -16,10 +27,7 @@ function Button({ children, variant = "default", size = "default", ...props }) {
   }
   
   return (
-    <button 
-      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]}`}
-      {...props}
-    >
+    <button className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]}`} {...props}>
       {children}
     </button>
   )
@@ -57,7 +65,9 @@ function CardContent({ children }) {
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return document.documentElement.classList.contains('dark')
+  })
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -70,7 +80,6 @@ export default function App() {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -85,13 +94,41 @@ export default function App() {
     languages: ['English', '中文', '日本語']
   }
 
+  const projects = [
+    {
+      id: 1,
+      title: "Journal Mate",
+      description: "AI Journal Mobile App Prototype",
+      image: "images/proj1.png",
+      technologies: ["UX", "UI", "Figma"],
+      link: "https://www.figma.com/deck/3cn7qNdAbughgFlWG4Cyhf/Untitled?node-id=1-43&t=8v1kDWjdDj7Ilc6j-1"
+    },
+    {
+      id: 2, 
+      title: "My Todo",
+      description: "A to-do list web application from the odin project",
+      image: "images/proj2.png",
+      technologies: ["JavaScript","HTML", "CSS", "Webpack"],
+      link: "https://thisisshiki.github.io/odin-todo-list/"
+    },
+    {
+      id: 3,
+      title: "Car Rental Website",
+      description: "University assignment of Internet programming",
+      image: "images/proj3.png", 
+      technologies: ["JavaScript", "HTML", "CSS", "PHP", "MySQL"],
+      link: "https://youtu.be/-hyL--d6r9U"
+    }
+  ]
+
   return (
     <div className={`min-h-screen bg-background text-foreground relative ${isDarkMode ? 'dark' : ''}`}>
       <div className="absolute top-0 left-0 w-1/4 h-1/4 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_100%_100%_at_0%_0%,#000_70%,transparent_100%)]" />
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center justify-between">
-          <div className="mr-4 hidden md:flex">
+        <div className="container mx-auto flex h-14 items-center justify-between px-4">
+          <div className="flex items-center">
             <a className="mr-6 flex items-center space-x-2" href="/">
+              <img className="h-8 w-8 rounded-full" src={images['logo.png']}  alt="Shiqi Wang" />
               <span className="hidden font-bold sm:inline-block">Shiqi Wang</span>
             </a>
             <nav className="flex items-center space-x-6 text-sm font-medium">
@@ -99,13 +136,15 @@ export default function App() {
               <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#projects">Projects</a>
             </nav>
           </div>
-          <button className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:text-accent-foreground h-10 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden" onClick={toggleMenu}>
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Toggle Menu</span>
-          </button>
-          <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
-            {isDarkMode ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
-          </Button>
+          <div className="flex items-center">
+            <button className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:text-accent-foreground h-10 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden" onClick={toggleMenu}>
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle Menu</span>
+            </button>
+            <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
+              {isDarkMode ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
+            </Button>
+          </div>
           {isMenuOpen && (
             <div className="fixed inset-0 z-50 bg-background md:hidden">
               <div className="fixed top-0 left-0 w-full p-4">
@@ -123,7 +162,7 @@ export default function App() {
         </div>
       </header>
       <main className="flex-1">
-        <section id="about" className="container py-12 md:py-24 lg:py-32">
+        <section id="about" className="container mx-auto py-12 md:py-24 lg:py-32 px-4">
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="flex flex-col items-center justify-center text-center lg:items-center lg:text-center">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
@@ -133,18 +172,26 @@ export default function App() {
                 Web Designer & Developer
               </p>
               <div className="mt-6 flex justify-center space-x-4">
-                <Button variant="outline" size="icon">
-                  <Github className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon">
-                  <Linkedin className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon">
-                  <Mail className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon">
-                  <Download className="h-4 w-4" />
-                </Button>
+                <a href="https://github.com/thisisshiki" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon">
+                    <Github className="h-4 w-4" />
+                  </Button>
+                </a>
+                <a href="https://linkedin.com/in/thisisshiki" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon">
+                    <Linkedin className="h-4 w-4" />
+                  </Button>
+                </a>
+                <a href="mailto:contact@example.com">
+                  <Button variant="outline" size="icon">
+                    <Mail className="h-4 w-4" />
+                  </Button>
+                </a>
+                <a href="/resume.pdf" download>
+                  <Button variant="outline" size="icon">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </a>
               </div>
             </div>
             <div className="space-y-4 flex flex-col justify-center">
@@ -201,42 +248,54 @@ export default function App() {
             </div>
           </div>
         </section>
-        <section id="projects" className="container py-12 md:py-24 lg:py-32">
+        <section id="projects" className="container mx-auto py-12 md:py-24 lg:py-32 px-4">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Projects</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((project) => (
-              <Card key={project}>
-                <CardContent>
-                  <img
-                    alt={`Project ${project}`}
-                    className="w-full h-48 object-cover rounded-md mb-4"
-                    height="200"
-                    src={`/placeholder.svg?height=200&width=300`}
-                    style={{
-                      aspectRatio: "300/200",
-                      objectFit: "cover",
-                    }}
-                    width="300"
-                  />
-                  <h3 className="font-semibold text-xl mb-2">Project {project}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    A brief description of project {project} and its key features.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge>Figma</Badge>
-                    <Badge>Procreate</Badge>
-                    <Badge>UX/UI</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="flex justify-center items-center">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {projects.map((project) => (
+                <Card key={project.id}>
+                  <CardContent>
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        alt={project.title}
+                        className="w-full h-48 object-cover rounded-md mb-4"
+                        src={project.image}
+                        height="200"
+                        width="300"
+                      />
+                    </a>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      <h3 className="font-semibold text-xl mb-2">{project.title}</h3>
+                    </a>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech}>{tech}</Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
       </main>
       <footer className="border-t">
-        <div className="container flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6">
+        <div className="container flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center justify-center px-4 md:px-6">
           <p className="text-xs text-muted-foreground">
-            © 2024 Shiqi Wang. All rights reserved.
+            © {new Date().getFullYear()} Shiqi Wang. All rights reserved.
           </p>
         </div>
       </footer>
