@@ -129,7 +129,7 @@ export default function App() {
           <div className="flex items-center">
             <a className="mr-6 flex items-center space-x-2" href="/">
               <img className="h-8 w-8 rounded-full" src={images['logo.png']}  alt="Shiqi Wang" />
-              <span className="hidden font-bold sm:inline-block">Shiqi Wang</span>
+              <span className="hidden font-bold sm:inline-block" style={{ fontFamily: 'Pacifico, cursive' }}>thisisshiki</span>
             </a>
             <nav className="flex items-center space-x-6 text-sm font-medium">
               <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#about">About</a>
@@ -162,7 +162,7 @@ export default function App() {
         </div>
       </header>
       <main className="flex-1">
-        <section id="about" className="container mx-auto py-12 md:py-24 lg:py-32 px-4">
+        <section id="about" className="container mx-auto py-12 md:py-24 lg:py-20 px-4">
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="flex flex-col items-center justify-center text-center lg:items-center lg:text-center">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
@@ -248,7 +248,7 @@ export default function App() {
             </div>
           </div>
         </section>
-        <section id="projects" className="container mx-auto py-12 md:py-24 lg:py-32 px-4">
+        <section id="projects" className="container mx-auto py-12 md:py-24 lg:py-20 px-4">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Projects</h2>
           <div className="flex justify-center items-center">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -295,7 +295,7 @@ export default function App() {
       <footer className="border-t w-full box-border">
         <div className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center justify-center px-4 md:px-6">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Shiqi Wang. All rights reserved.
+            © {new Date().getFullYear()} thisisshiki All rights reserved.
           </p>
         </div>
       </footer>
