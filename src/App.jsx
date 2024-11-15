@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { ArrowUp, Download, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react'
+import proj1 from './images/proj1.png'
+import proj2 from './images/proj2.png'
+import proj3 from './images/proj3.png'
 
+// Import all images from images directory
 const importAll = (r) => {
   let images = {};
   r.keys().forEach((item) => {
@@ -8,8 +12,6 @@ const importAll = (r) => {
   });
   return images;
 }
-
-// Import all images from images directory
 const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg|gif)$/));
 
 function Button({ children, variant = "default", size = "default", ...props }) {
@@ -89,7 +91,7 @@ export default function App() {
   }
 
   const skills = {
-    dev: ['HTML', 'CSS', 'JavaScript', 'React', 'Webpack', 'Node.js', 'Git', 'Python', 'SQL'],
+    dev: ['HTML', 'CSS','Tailwind CSS', 'JavaScript', 'React','Node.js', 'Webpack', 'Vite','Git', 'Linux Shell','Python', 'SQL'],
     design: ['Figma', 'Procreate', 'Photoshop', 'Clip Studio Paint'],
     languages: ['English', '中文', '日本語']
   }
@@ -99,7 +101,7 @@ export default function App() {
       id: 1,
       title: "Journal Mate",
       description: "AI Journal Mobile App Prototype",
-      image: "images/proj1.png",
+      image: proj1,
       technologies: ["UX", "UI", "Figma"],
       link: "https://www.figma.com/deck/3cn7qNdAbughgFlWG4Cyhf/Untitled?node-id=1-43&t=8v1kDWjdDj7Ilc6j-1"
     },
@@ -107,7 +109,7 @@ export default function App() {
       id: 2, 
       title: "My Todo",
       description: "A to-do list web application from the odin project",
-      image: "images/proj2.png",
+      image: proj2,
       technologies: ["JavaScript","HTML", "CSS", "Webpack"],
       link: "https://thisisshiki.github.io/odin-todo-list/"
     },
@@ -115,7 +117,7 @@ export default function App() {
       id: 3,
       title: "Car Rental Website",
       description: "University assignment of Internet programming",
-      image: "images/proj3.png", 
+      image: proj3, 
       technologies: ["JavaScript", "HTML", "CSS", "PHP", "MySQL"],
       link: "https://youtu.be/-hyL--d6r9U"
     }
@@ -264,6 +266,7 @@ export default function App() {
                       <img
                         alt={project.title}
                         className="w-full h-48 object-cover rounded-md mb-4"
+                        // src={proj1}
                         src={project.image}
                         height="200"
                         width="300"
