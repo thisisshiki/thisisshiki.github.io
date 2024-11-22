@@ -1,37 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { ArrowUp, Download, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react'
 import {skills, projects} from './data'
+import Button from './Button';
+import importAll from './importAll';
 
-// Import all images from images directory
-const importAll = (r) => {
-  let images = {};
-  r.keys().forEach((item) => {
-    images[item.replace('./', '')] = r(item);
-  });
-  return images;
-}
 const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg|gif)$/));
-
-function Button({ children, variant = "default", size = "default", ...props }) {
-  const baseStyles = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background"
-  const variantStyles = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/90",
-    outline: "border border-input hover:bg-accent hover:text-accent-foreground",
-    ghost: "hover:bg-accent hover:text-accent-foreground",
-  }
-  const sizeStyles = {
-    default: "h-10 py-2 px-4",
-    sm: "h-9 px-3 rounded-md",
-    lg: "h-11 px-8 rounded-md",
-    icon: "h-10 w-10",
-  }
-  
-  return (
-    <button className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]}`} {...props}>
-      {children}
-    </button>
-  )
-}
 
 function Badge({ children, variant = "default" }) {
   const variantStyles = {
@@ -87,63 +60,6 @@ export default function App() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
-//   const skills = {
-//     dev: ['HTML', 'CSS','Tailwind CSS', 'JavaScript', 'React','Node.js', 'Webpack', 'Vite','Git', 'Linux Shell','Python', 'SQL'],
-//     design: ['Figma', 'Procreate', 'Photoshop', 'Clip Studio Paint'],
-//     languages: ['English', '中文', '日本語']
-//   }
-
-// const projects = [
-//   {
-//     id: 1,
-//     title: "Journal Mate",
-//     description: "AI Journal Mobile App Prototype",
-//     image: proj1,
-//     technologies: ["UX", "UI", "Figma"],
-//     link: "https://www.figma.com/deck/3cn7qNdAbughgFlWG4Cyhf/Untitled?node-id=1-43&t=8v1kDWjdDj7Ilc6j-1"
-//   },
-//   {
-//     id: 2, 
-//     title: "My Todo",
-//     description: "A to-do list web application from the odin project",
-//     image: proj2,
-//     technologies: ["JavaScript","HTML", "CSS", "Webpack"],
-//     link: "https://thisisshiki.github.io/odin-todo-list/"
-//   },
-//   {
-//     id: 3,
-//     title: "Car Rental Website",
-//     description: "University assignment of Internet programming",
-//     image: proj3, 
-//     technologies: ["JavaScript", "HTML", "CSS", "PHP", "MySQL"],
-//     link: "https://youtu.be/-hyL--d6r9U"
-//   },
-//   {
-//     id: 4,
-//     title: "etch-a-sketch",
-//     description: "A browser version of a sketchpad Etch-A-Sketch",
-//     image: proj4, 
-//     technologies: ["JavaScript", "HTML", "CSS"],
-//     link: "https://thisisshiki.github.io/etch-a-sketch/"
-//   },
-//   {
-//     id: 5,
-//     title: "Book Library",
-//     description: "A book library web application",
-//     image: proj5, 
-//     technologies: ["JavaScript", "HTML", "CSS"],
-//     link: "https://thisisshiki.github.io/odin-library/"
-//   },
-//   {
-//     id: 6,
-//     title: "Tic Tac Toe",
-//     description: "A Tic Tac Toe game you can play in your browser",
-//     image: proj6, 
-//     technologies: ["JavaScript", "HTML", "CSS"],
-//     link: "https://thisisshiki.github.io/odin-tic-tac-toe/"
-//   }
-// ]
 
   return (
     <div className={`min-h-screen bg-background text-foreground relative ${isDarkMode ? 'dark' : ''}`}>
