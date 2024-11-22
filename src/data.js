@@ -1,7 +1,9 @@
-// data.js
 import proj1 from './images/proj1.png'
 import proj2 from './images/proj2.png'
 import proj3 from './images/proj3.png'
+import proj4 from './images/proj4.png'
+import proj5 from './images/proj5.png'
+import proj6 from './images/proj6.png'
 
 export const skills = {
   dev: ['HTML', 'CSS','Tailwind CSS', 'JavaScript', 'React','Node.js', 'Webpack', 'Vite','Git', 'Linux Shell','Python', 'SQL'],
@@ -45,7 +47,7 @@ export const projects = [
   {
     id: 5,
     title: "Book Library",
-    description: "A book library web application from the odin project",
+    description: "A fake book library web application",
     image: proj5, 
     technologies: ["JavaScript", "HTML", "CSS"],
     link: "https://thisisshiki.github.io/odin-library/"
