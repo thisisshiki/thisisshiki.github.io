@@ -3,37 +3,11 @@ import { ArrowUp, Download, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'l
 import {skills, projects} from './data'
 import Button from './Button';
 import importAll from './importAll';
+import Badge from './components/Badge';
+import Card from './components/Card';
+import CardContent from './components/CardContent';
 
 const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg|gif)$/));
-
-function Badge({ children, variant = "default" }) {
-  const variantStyles = {
-    default: "bg-primary text-primary-foreground",
-    secondary: "bg-secondary text-secondary-foreground",
-  }
-  
-  return (
-    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${variantStyles[variant]}`}>
-      {children}
-    </span>
-  )
-}
-
-function Card({ children }) {
-  return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
-      {children}
-    </div>
-  )
-}
-
-function CardContent({ children }) {
-  return (
-    <div className="p-6">
-      {children}
-    </div>
-  )
-}
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -172,7 +146,7 @@ export default function App() {
                   <ul className="space-y-2">
                     <li>
                       <h3 className="font-medium">Master of Interaction Design Extension</h3>
-                      <p className="text-sm text-muted-foreground">UTS | 2023 - Present</p>
+                      <p className="text-sm text-muted-foreground">University Technology Sydney | 2023 - 2024</p>
                     </li>
                     <li>
                       <h3 className="font-medium">System Administrator</h3>

@@ -6,7 +6,7 @@ import proj5 from './images/proj5.png'
 import proj6 from './images/proj6.png'
 
 export const skills = {
-  dev: ['HTML', 'CSS','Tailwind CSS', 'JavaScript', 'React','Node.js', 'Webpack', 'Vite','Git', 'Linux Shell','Python', 'SQL'],
+  dev: ['HTML', 'CSS','Tailwind CSS', 'JavaScript', 'React','Node.js', 'Webpack','Git', 'Linux Shell','Python', 'SQL'],
   design: ['Figma', 'Procreate', 'Photoshop', 'Clip Studio Paint'],
   languages: ['English', '中文', '日本語']
 }
@@ -17,7 +17,7 @@ export const projects = [
     title: "Journal Mate",
     description: "AI Journal Mobile App Prototype",
     image: proj1,
-    technologies: ["UX", "UI", "Figma"],
+    technologies: ["UX", "UI", "Figma", "User Research", "User Testing"],
     link: "https://www.figma.com/deck/3cn7qNdAbughgFlWG4Cyhf/Untitled?node-id=1-43&t=8v1kDWjdDj7Ilc6j-1"
   },
   {
@@ -38,7 +38,7 @@ export const projects = [
   },
   {
     id: 4,
-    title: "etch-a-sketch",
+    title: "Etch-A-Sketch",
     description: "A browser version of a sketchpad Etch-A-Sketch",
     image: proj4, 
     technologies: ["JavaScript", "HTML", "CSS"],
