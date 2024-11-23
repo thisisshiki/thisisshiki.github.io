@@ -17,7 +17,7 @@ export const projects = [
     title: "Journal Mate",
     description: "AI Journal Mobile App Prototype",
     image: proj1,
-    technologies: ["UX", "UI", "Figma", "User Research", "User Testing"],
+    technologies: ["UX", "UI", "Figma", "User Research"],
     link: "https://www.figma.com/deck/3cn7qNdAbughgFlWG4Cyhf/Untitled?node-id=1-43&t=8v1kDWjdDj7Ilc6j-1"
   },
   {

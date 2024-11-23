@@ -3,10 +3,9 @@ import { ArrowUp, Download, Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'l
 import {skills, projects} from './data'
 import Button from './Button';
 import importAll from './importAll';
-import Badge from './components/Badge';
-import Card from './components/Card';
-import CardContent from './components/CardContent';
-
+const Card = React.lazy(() => import('./components/Card'));
+const Badge = React.lazy(() => import('./components/Badge'));
+const CardContent = React.lazy(() => import('./components/CardContent'));
 const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg|gif)$/));
 
 export default function App() {
@@ -169,20 +168,22 @@ export default function App() {
               {projects.map((project) => (
                 <Card key={project.id}>
                   <CardContent>
-                    <a 
+                                        <a 
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block hover:opacity-80 transition-opacity"
                     >
-                      <img
-                        alt={project.title}
-                        className="w-full h-48 object-cover rounded-md mb-4"
-                        // src={proj1}
-                        src={project.image}
-                        height="200"
-                        width="300"
-                      />
+                      <div className="relative w-full pt-[66.67%]">
+                        <img
+                          src={project.image}
+                          srcSet={`${project.image} 300w, ${project.imageSmall} 200w`}
+                          sizes="(max-width: 768px) 150px, 300px"
+                          loading="lazy"
+                          alt={project.title}
+                          className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
+                        />
+                      </div>
                     </a>
                     <a
                       href={project.link}

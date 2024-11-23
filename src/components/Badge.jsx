@@ -1,4 +1,3 @@
-// src/components/Badge.jsx
 import React from 'react';
 
 function Badge({ children, variant = "default" }) {
