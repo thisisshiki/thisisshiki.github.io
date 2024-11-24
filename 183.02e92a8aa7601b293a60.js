@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkthisisshiki_github_io=self.webpackChunkthisisshiki_github_io||[]).push([[183],{183:(i,s,e)=>{e.r(s),e.d(s,{default:()=>h});var t=e(540);const h=function(i){var s=i.children;return t.createElement("div",{className:"p-6"},s)}}}]);
