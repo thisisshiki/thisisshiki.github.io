@@ -14,7 +14,7 @@ export const skills = {
 export const projects = [
   {
     id: 1,
-    title: "Journal Mate",
+    title: "Journal Mate Mobile App",
     description: "AI Journal Mobile App Prototype",
     image: proj1,
     technologies: ["UX", "UI", "Figma", "User Research"],
@@ -22,42 +22,50 @@ export const projects = [
   },
   {
     id: 2, 
-    title: "My Todo",
-    description: "A to-do list web application from the odin project",
+    title: "My Todo Website",
+    description: "A To-do List Web Application Using Local Storage",
     image: proj2,
     technologies: ["JavaScript","HTML", "CSS", "Webpack"],
     link: "https://thisisshiki.github.io/odin-todo-list/"
   },
   {
     id: 3,
-    title: "Car Rental Website",
-    description: "University assignment of Internet programming",
+    title: "Herts-UTS Car Rental Website",
+    description: "E-commerce Website with Shopping Cart and Order",
     image: proj3, 
     technologies: ["JavaScript", "HTML", "CSS", "PHP", "MySQL"],
     link: "https://youtu.be/-hyL--d6r9U"
   },
   {
     id: 4,
-    title: "Etch-A-Sketch",
-    description: "A browser version of a sketchpad Etch-A-Sketch",
+    title: "Etch-A-Sketch Game",
+    description: "A Browser Version of A Sketchpad Etch-A-Sketch",
     image: proj4, 
-    technologies: ["JavaScript", "HTML", "CSS"],
+    technologies: ["JavaScript", "HTML", "CSS", "Game"],
     link: "https://thisisshiki.github.io/etch-a-sketch/"
   },
   {
     id: 5,
-    title: "Book Library",
-    description: "A fake book library web application",
+    title: "Weather App Website",
+    description: "A Weather Forecast Website using Web API",
     image: proj5, 
-    technologies: ["JavaScript", "HTML", "CSS"],
-    link: "https://thisisshiki.github.io/odin-library/"
+    technologies: ["TypeScript", "React", "Tailwind CSS", "Vite"],
+    link: "https://thisisshiki.github.io/odin-weather-app/"
   },
+  // {
+  //   id: 5,
+  //   title: "Book Library",
+  //   description: "A fake book library web application",
+  //   image: proj5, 
+  //   technologies: ["JavaScript", "HTML", "CSS"],
+  //   link: "https://thisisshiki.github.io/odin-library/"
+  // },
   {
     id: 6,
-    title: "Tic Tac Toe",
-    description: "A Tic Tac Toe game you can play in your browser",
+    title: "Tic Tac Toe Game",
+    description: "A 2-Player Tic Tac Toe Game Played in Browser",
     image: proj6, 
-    technologies: ["JavaScript", "HTML", "CSS"],
+    technologies: ["JavaScript", "HTML", "CSS", "Game"],
     link: "https://thisisshiki.github.io/odin-tic-tac-toe/"
   }
 ]
