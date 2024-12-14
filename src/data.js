@@ -61,7 +61,7 @@ export const projects = [
     description: "A Card Memory Game Played in Browser",
     image: proj6, 
     technologies: ["React", "TypeScript", "HTML", "CSS", "Game"],
-    link: "https://github.com/thisisshiki/odin-tic-tac-toe"
+    link: "https://github.com/thisisshiki/odin-memory-card"
   },
   {
     id: 7,
