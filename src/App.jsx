@@ -145,7 +145,7 @@ export default function App() {
                   <ul className="space-y-2">
                     <li>
                       <h3 className="font-medium">Master of Interaction Design Extension</h3>
-                      <p className="text-sm text-muted-foreground">University Technology Sydney | 2023 - 2024</p>
+                      <p className="text-sm text-muted-foreground">University of Technology Sydney | 2023 - 2024</p>
                     </li>
                     <li>
                       <h3 className="font-medium">System Administrator</h3>
@@ -154,6 +154,10 @@ export default function App() {
                     <li>
                       <h3 className="font-medium">System Administrator</h3>
                       <p className="text-sm text-muted-foreground">IBM | 2015 - 2019</p>
+                    </li>
+                    <li>
+                      <h3 className="font-medium">Bachelors of Arts Japanese Language </h3>
+                      <p className="text-sm text-muted-foreground">Zhongkai University of Agriculture and Engineering | 2011 - 2015</p>
                     </li>
                   </ul>
                 </CardContent>
